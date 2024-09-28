@@ -1,0 +1,280 @@
+<DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Other head elements -->
+</head>
+<body ng-app="myApp"> <!-- Initialize AngularJS application -->
+    <nav class="navbar" ng-controller="NavController">
+        <ul class="link-group">
+            <li class="link" ng-class="{active: activeTab === 'home'}"><a href="#" ng-click="setActiveTab('home')">home</a></li>
+            <li class="link" ng-class="{active: activeTab === 'projects'}"><a href="#" ng-click="setActiveTab('projects')">projects</a></li>
+            <li class="link" ng-class="{active: activeTab === 'about'}"><a href="#" ng-click="setActiveTab('about')">about</a></li>
+            <li class="link" ng-class="{active: activeTab === 'contact'}"><a href="#" ng-click="setActiveTab('contact')">contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="home-section" ng-show="activeTab === 'home'">
+        <h1 class="hero-heading">hello, i am <br> Marie Curie</h1>
+        <img src="C:\FrontEnd_Vs\download.jpeg" class="home-img" alt="">
+    </section>
+
+    <section class="project-section" ng-controller="ProjectController">
+        <h1 class="project-heading">some of my projects</h1>
+        <div class="project-container">
+            <div class="project-card">
+                <img src="C:\FrontEnd_Vs\OIP.jpeg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">project 01</h1>
+                    <p class="project-info">              
+                     A home automation project involves integrating smart devices and technologies to control various aspects of home living, like lighting, security, and climate, often through a central hub or controller, allowing for remote management and automation for convenience and efficiency.
+                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">github repo</button>
+                        <button class="project-btn live">see live</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="project-card">
+                <img src="C:\FrontEnd_Vs\project2.jpeg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">project 02</h1>
+                    <p class="project-info">
+                        Line-following robot projects are engaging endeavors where enthusiasts assemble robots capable of autonomously tracking and adhering to a predefined path marked by a discernible line on a surface. These projects encompass selecting or constructing a suitable robot platform
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">github repo</button>
+                        <button class="project-btn live">see live</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="C:\FrontEnd_Vs\project3.jpg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">project 03</h1>
+                    <p class="project-info">
+                        This project encompasses the integration of sophisticated mechanisms that adjust the position of solar panels in response to real-time data from sun tracking sensors. These sensors, often light-sensitive components like LDRs or photodiodes, detect the sun's position.
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">github repo</button>
+                        <button class="project-btn live">see live</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="C:\FrontEnd_Vs\project4.jpeg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">project 04</h1>
+                    <p class="project-info">
+                        alcohol detecting system projects combine elements of sensor technology, microcontroller programming, and system integration to create devices that contribute to public safety and alcohol consumption monitoring. These projects play a significant role in applications.
+                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">github repo</button>
+                        <button class="project-btn live">see live</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+
+   <!--<script>
+        //var app = angular.module('myApp', []);
+        // Define ProjectController
+        app.controller('ProjectController', function($scope) {
+            // Sample project data
+            $scope.projects= [
+                { 
+                    image: "C:\\FrontEnd_Vs\\OIP.jpeg" ,
+                    title: "Project 01",
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit vitae delectus cumque repudiandae aliquam optio accusamus natus nobis! Nam, sunt?",
+                    
+                }
+                /*{ 
+                    title: "Project 02",
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit vitae delectus cumque repudiandae aliquam optio accusamus natus nobis! Nam, sunt?",
+                    image: "C:\\FrontEnd_Vs\\OIP.jpeg" // Update the image path accordingly
+                },
+                { 
+                    title: "Project 03",
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit vitae delectus cumque repudiandae aliquam optio accusamus natus nobis! Nam, sunt?",
+                    image: "C:\\FrontEnd_Vs\\OIP.jpeg" // Update the image path accordingly
+                },
+                { 
+                    title: "Project 04",
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit vitae delectus cumque repudiandae aliquam optio accusamus natus nobis! Nam, sunt?",
+                    image: "C:\\FrontEnd_Vs\\OIP.jpeg" // Update the image path accordingly
+                }
+                */
+            ];
+        });
+    </script>-->
+   <!-- about section -->
+   <section class="about-section" ng-controller="AboutController">
+    <div class="about">
+        <div class="about-img-container">
+            <img src="C:\FrontEnd_Vs\download.jpeg" class="about-img" alt="">
+            <button class="download-cv-btn">download cv</button>
+        </div>
+        <p class="about-info">"Greetings, I am Marie Curie, a seeker of knowledge amidst the mysteries of the universe. Born Maria Skłodowska in the vibrant city of Warsaw, I embarked on a journey fueled by curiosity and a relentless passion for understanding the workings of the natural world.
+            My path led me to the hallowed halls of the Sorbonne in Paris, where I delved into the realms of physics and chemistry, driven by an insatiable thirst for discovery. Alongside my beloved Pierre, we unveiled the enigmatic phenomena of radioactivity, unraveling the secrets of matter on an atomic scale
+            Our groundbreaking research unveiled the existence of new elements, polonium and radium, laying the cornerstone for modern nuclear physics. With unwavering determination, I coined the term 'radioactivity,' forging a path that illuminated the possibilities of harnessing atomic energy for the betterment of humankind.
+            Amidst accolades and accolades, I remained steadfast in my pursuit of truth, championing education and breaking barriers for women in science. Through the shadows of adversity and discrimination, I persevered, driven by the belief that knowledge knows no bounds.
+            Though my journey on this earthly plane has ended, my legacy endures as a beacon of inspiration for generations to come. For in the pursuit of understanding lies the promise of a brighter tomorrow, where the wonders of science illuminate the path towards progress and enlightenment."</p> <!-- AngularJS expression -->
+    </div>
+   <!-- skills -->
+   <div class="skill-section">
+    <h1 class="heading">skills</h1>
+    <div class="skills-container">
+        <div class="skill-card" ng-repeat="skill in skills">
+            <img src="skill.jpeg" class="skill-img" alt="">
+            <div class="skill-level">98%</div>
+            <h1 class="skill-name">>HTML</h1> <!-- AngularJS expression -->
+            <p class="skill-info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, delectus!</p> <!-- AngularJS expression -->
+        </div>
+        <div class="skill-card">
+            <img src="skill.jpeg" class="skill-img" alt="">
+            <div class="skill-level">98%</div>
+            <h1 class="skill-name">CSS</h1>
+            <p class="skill-info">CSS is a language used for styling the presentation of web pages, allowing developers to control the layout, colors, fonts, and other visual aspects of HTML elements.            </p>
+        </div>
+        <div class="skill-card">
+            <img src="skill2.jpeg" class="skill-img" alt="">
+            <div class="skill-level">90%</div>
+            <h1 class="skill-name">JS</h1>
+            <p class="skill-info"> enables dynamic behavior on web pages, including interactivity, animations, and handling user input. JS can be executed both on the client-side and server-side applications.</p>
+        </div>
+        <div class="skill-card">
+            <img src="skill3.jpeg" class="skill-img" alt="">
+            <div class="skill-level">80%</div>
+            <h1 class="skill-name">Node.Js</h1>
+            <p class="skill-info">Node.js is commonly used for building web servers, APIs, and real-time applications, leveraging its event-driven architecture and extensive package ecosystem from npm</p>
+        </div>
+        <div class="skill-card">
+            <img src="skill4.jpeg" class="skill-img" alt="">
+            <div class="skill-level">75%</div>
+            <h1 class="skill-name">React.Js</h1>
+            <p class="skill-info">React is widely used for building single-page applications and is known for its performance, flexibility, and large developer community.</p>
+        </div>
+    </div>
+</div>
+          
+   <!-- timeline -->
+   <div class="timeline">
+    <h1 class="heading">education and experience</h1>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">1867-1883</h1>
+            <p class="card-detail">Maria Sklodowska, later known as Marie Curie, was born on November 7, 1867, in Warsaw, Poland, then part of the Russian Empire. She attended local schools in Poland, where she showed exceptional aptitude in mathematics and science.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">1885-1891</h1>
+            <p class="card-detail">At the age of 18, Marie Curie began attending the Floating University, a secret institution that provided education to Polish students when higher education for Poles was prohibited by the Russian authorities.
+                 She moved to Paris and enrolled at the Sorbonne (University of Paris), where she studied physics, mathematics, and chemistry.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">1893-1894</h1>
+            <p class="card-detail"> Marie Curie earned a degree in physics from the Sorbonne, ranking first in her class.
+                 She completed a second degree in mathematics, also ranking first in her class.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">1894-1896</h1>
+            <p class="card-detail"> Marie Curie began her research work in the laboratory of physicist Gabriel Lippmann, focusing on magnetic properties of various steels
+                 Marie Curie started her doctoral research on the properties of various types of uranium ores, leading to the discovery of radioactivity.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">1898-1911</h1>
+            <p class="card-detail"> Marie Curie and Pierre Curie discovered two new elements, polonium and radium, marking the birth of the field of nuclear physics.
+                The Curies, along with Henri Becquerel, were awarded the Nobel Prize in Physics for their groundbreaking work on radioactivity.
+              Marie Curie received a second Nobel Prize, this time in Chemistry, for her discovery of radium and polonium, and her isolation of radium.</p>
+        </div>
+    </div>
+</div>
+</section>
+   
+ <!-- <script>
+        var app = angular.module('myApp', []);
+    
+        // Define AboutController
+        app.controller('AboutController', function($scope) {
+            // Sample data for demonstration
+            $scope.aboutInfo = "Am akshata from bidar currently am studing in presidency university bengalore in fied of engineering cse branch";
+            
+            $scope.skills = [
+                { name: "HTML", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, delectus!" },
+                { name: "CSS", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, delectus!" },
+                { name: "JS", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, delectus!" },
+                { name: "Node.Js", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, delectus!" },
+                { name: "React.Js", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur, delectus!" }
+            ];
+            
+            $scope.timeline = [
+                { title: "2000-2002", detail: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto sequi recusandae laborum ipsam dignissimos nostrum vitae provident officia, consectetur ab accusantium corrupti exercitationem temporibus repellat non magni cupiditate ea reprehenderit." },
+                { title: "2004-2006", detail: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto sequi recusandae laborum ipsam dignissimos nostrum vitae provident officia, consectetur ab accusantium corrupti exercitationem temporibus repellat non magni cupiditate ea reprehenderit." },
+                { title: "2006-2008", detail: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto sequi recusandae laborum ipsam dignissimos nostrum vitae provident officia, consectetur ab accusantium corrupti exercitationem temporibus repellat non magni cupiditate ea reprehenderit." },
+                { title: "2009-2010", detail: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto sequi recusandae laborum ipsam dignissimos nostrum vitae provident officia, consectetur ab accusantium corrupti exercitationem temporibus repellat non magni cupiditate ea reprehenderit." },
+                { title: "2012-2013", detail: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto sequi recusandae laborum ipsam dignissimos nostrum vitae provident officia, consectetur ab accusantium corrupti exercitationem temporibus repellat non magni cupiditate ea reprehenderit." }
+            ];
+            document.addEventListener('DOMContentLoaded', initializeJavaScript);
+        });
+    </script>-->
+<!-- contact section -->
+<section class="contact-section" ng-controller="ContactController">
+    <form class="contact-form" ng-submit="submitForm()">
+        <input type="text" name="name" id="name" ng-model="formData.name" autocomplete="off" placeholder="name" required>
+        <input type="email" name="email" id="email" ng-model="formData.email" autocomplete="off" placeholder="email" required>
+        <textarea name="msg" id="msg" ng-model="formData.message" placeholder="message" autocomplete="off" required></textarea>
+        <button type="submit" class="form-submit-btn">contact</button>
+    </form>
+    <!-- map -->
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31077.861108697303!2d77.53477110131993!3d13.179250127934193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae21d155570515%3A0xf868dc50f102a621!2sRajanukunte%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1714411150339!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <!-- Social media icons -->
+    <div class="social-media-links">
+        <span style="color: white;">@MarieCurie</span>
+        <a href="https://twitter.com/yourprofile" target="_blank" class="btn btn-outline-primary mr-5">
+            <i class="fab fa-twitter"></i> Twitter
+        </a>
+        <br />    
+        <span style="color: white;">MarieCurie</span>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn btn-outline-primary">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+    </div>
+</section>
+<script>
+    var app = angular.module('myApp', []);
+
+    // Define ContactController
+    app.controller('ContactController', function($scope) {
+        // Initialize formData object
+        $scope.formData = {};
+
+        // Function to submit the form
+        $scope.submitForm = function() {
+            // Here you can handle the form submission logic
+            console.log('Form submitted with data:', $scope.formData);
+            // For demonstration, you can reset the form data
+            $scope.formData = {};
+        };
+    });
+</script>
+    <script src="app.js"></script>
+</body> 
+
+</html>

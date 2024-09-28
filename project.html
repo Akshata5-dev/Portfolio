@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="myCtrl">
+    <nav class="navbar">
+        <ul class="link-group">
+            <li class="link" ng-class="{active: link.active}" ng-repeat="link in links" ng-click="setActive($index)">
+                <a href="#">{{ link.name }}</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="project-section" ng-show="sections[1].active">
+        <h1 class="project-heading">Some of My Projects</h1>
+        <div class="project-container">
+            <div class="project-card" ng-repeat="project in projects">
+                <img src="{{ project.image }}" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">{{ project.title }}</h1>
+                    <p class="project-info">{{ project.description }}</p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github">Github Repo</button>
+                        <button class="project-btn live">See Live</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" ng-show="sections[3].active">
+        <form class="contact-form" ng-submit="submitForm()">
+            <input type="text" name="name" id="name" autocomplete="off" placeholder="Name" ng-model="formData.name">
+            <input type="text" name="email" id="email" autocomplete="off" placeholder="Email" ng-model="formData.email">
+            <textarea name="msg" id="msg" placeholder="Message" autocomplete="off" ng-model="formData.message"></textarea>
+            <button type="submit" class="form-submit-btn">Contact</button>
+        </form>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31077.861108697303!2d77.53477110131993!3d13.179250127934193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae21d155570515%3A0xf868dc50f102a621!2sRajanukunte%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1714411150339!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Other sections will go here -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        angular.module('myApp', [])
+        .controller('myCtrl', function($scope) {
+            $scope.links = [
+                { name: "Home", active: true },
+                { name: "Projects", active: false },
+                { name: "About", active: false },
+                { name: "Contact", active: false }
+            ];
+
+            $scope.sections = [
+                { active: true },
+                { active: false },
+                { active: false },
+                { active: false }
+            ];
+
+            $scope.projects = [
+                { 
+                    title: "Project 01",
+                    image: "C:\FrontEnd_Vs\OIP.jpeg",
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit vitae delectus cumque repudiandae aliquam optio accusamus natus nobis! Nam, sunt?"
+                },
+                { 
+                    title: "Project 02",
+                    image: "C:\FrontEnd_Vs\OIP.jpeg",
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit vitae delectus cumque repudiandae aliquam optio accusamus natus nobis! Nam, sunt?"
+                },
+                { 
+                    title: "Project 03",
+                    image: "C:\FrontEnd_Vs\OIP.jpeg",
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit vitae delectus cumque repudiandae aliquam optio accusamus natus nobis! Nam, sunt?"
+                },
+                { 
+                    title: "Project 04",
+                    image: "C:\FrontEnd_Vs\OIP.jpeg",
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit vitae delectus cumque repudiandae aliquam optio accusamus natus nobis! Nam, sunt?"
+                }
+            ];
+
+            $scope.setActive = function(index) {
+                for (var i = 0; i < $scope.links.length; i++) {
+                    $scope.links[i].active = (i === index);
+                    $scope.sections[i].active = (i === index);
+                }
+            };
+        $scope.submitForm = function() {
+                // Here you can implement the logic to handle form submission
+                console.log("Form submitted with data:", $scope.formData);
+                // For demonstration purposes, let's reset the form data after submission
+                $scope.formData = {};
+            };
+        });
+    </script>
+</body>
+</html>
